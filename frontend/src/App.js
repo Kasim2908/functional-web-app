@@ -20,7 +20,6 @@ function App() {
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    // 📱 Phone formatting
     if (name === 'phone') {
       const digitsOnly = value.replace(/\D/g, '').slice(0, 10);
       let formatted = digitsOnly;
@@ -39,7 +38,6 @@ function App() {
     const digits = formData.phone.replace(/\D/g, '');
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    // Reset errors
     setPhoneError('');
     setEmailError('');
     setMarksError('');
@@ -89,6 +87,19 @@ function App() {
     }
   };
 
+  const handleReset = async () => {
+    if (window.confirm("⚠️ Are you sure you want to delete all student data?")) {
+      try {
+        await axios.delete('http://localhost:5000/students/reset');
+        setStudents([]);
+        alert('✅ All student data has been reset!');
+      } catch (error) {
+        console.error("Reset error:", error);
+        alert("❌ Failed to reset student data");
+      }
+    }
+  };
+
   useEffect(() => {
     fetchStudents();
   }, []);
@@ -108,46 +119,45 @@ function App() {
       <h1>🎓 Student Counseling Form</h1>
 
       <div>
-  <input
-    name="name"
-    placeholder="Enter your full name"
-    value={formData.name}
-    onChange={handleChange}
-    title="Enter full name (e.g. John Doe)"
-  />
+        <input
+          name="name"
+          placeholder="Enter your full name"
+          value={formData.name}
+          onChange={handleChange}
+          title="Enter full name (e.g. John Doe)"
+        />
 
-  <input
-    name="email"
-    placeholder="Enter your email"
-    value={formData.email}
-    onChange={handleChange}
-    title="Enter a valid email (e.g. name@example.com)"
-  />
-  {emailError && <div className="error">{emailError}</div>}
+        <input
+          name="email"
+          placeholder="Enter your email"
+          value={formData.email}
+          onChange={handleChange}
+          title="Enter a valid email (e.g. name@example.com)"
+        />
+        {emailError && <div className="error">{emailError}</div>}
 
-  <input
-    name="phone"
-    placeholder="123-456-7890"
-    value={formData.phone}
-    onChange={handleChange}
-    title="10-digit phone number only"
-  />
-  {phoneError && <div className="error">{phoneError}</div>}
+        <input
+          name="phone"
+          placeholder="123-456-7890"
+          value={formData.phone}
+          onChange={handleChange}
+          title="10-digit phone number only"
+        />
+        {phoneError && <div className="error">{phoneError}</div>}
 
-  <input
-    name="marks"
-    placeholder="Marks out of 100"
-    value={formData.marks}
-    onChange={handleChange}
-    title="Enter marks between 0–100"
-  />
-  {marksError && <div className="error">{marksError}</div>}
+        <input
+          name="marks"
+          placeholder="Marks out of 100"
+          value={formData.marks}
+          onChange={handleChange}
+          title="Enter marks between 0–100"
+        />
+        {marksError && <div className="error">{marksError}</div>}
 
-  <button onClick={handleSubmit} title="Submit the form">Submit</button>
+        <button onClick={handleSubmit} title="Submit the form">Submit</button>
 
-  {successMessage && <div className="success">{successMessage}</div>}
-</div>
-
+        {successMessage && <div className="success">{successMessage}</div>}
+      </div>
 
       <h3>📋 Submitted Students</h3>
       <ul>
@@ -157,6 +167,12 @@ function App() {
           </li>
         ))}
       </ul>
+
+      {students.length > 0 && (
+        <button onClick={handleReset} title="Clear all data" style={{ marginTop: '1rem' }}>
+          🧹 Reset All Data
+        </button>
+      )}
     </div>
   );
 }
