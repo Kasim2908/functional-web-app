@@ -23,7 +23,7 @@ A  web application built using **React**, **Node.js**, **Express**, and **MySQL*
 | Frontend        | Backend       | Database     | Auth |
 |----------------|---------------|--------------|------|
 | React.js        | Node.js        | MySQL         | JWT + Bcrypt |
-| CSS3            | Express.js     | Sequelize ORM | Role-based access |
+| CSS3            | Express.js     | Sequelize ORMs |
 
 ---
 
