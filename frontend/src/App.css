@@ -1,0 +1,206 @@
+/* App.css */
+
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #f0f4ff, #e5eaf5);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* App Container */
+.container {
+  text-align: center;
+  padding: 2rem;
+}
+
+/* Heading */
+h1 {
+  color: #2d2d2d;
+  margin-bottom: 1rem;
+}
+
+/* Sub-heading */
+h3 {
+  margin-top: 2rem;
+  font-size: 1.4rem;
+  color: #3b3b3b;
+}
+
+/* Input fields */
+input {
+  margin: 0.4rem;
+  padding: 0.6rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 180px;
+  font-size: 1rem;
+  transition: all 0.3s ease-in-out;
+}
+
+input:focus {
+  border-color: #5e72e4;
+  box-shadow: 0 0 8px rgba(94, 114, 228, 0.2);
+  outline: none;
+}
+
+/* Submit Button */
+button {
+  padding: 0.6rem 1.2rem;
+  background: linear-gradient(90deg, #5e72e4, #825ee4);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(94, 114, 228, 0.3);
+}
+
+/* List styling */
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+li {
+  margin: 0.6rem 0;
+  font-size: 1.1rem;
+  color: #333;
+  font-weight: 500;
+}
+/* === DARK MODE === */
+body.dark-mode {
+  background: linear-gradient(135deg, #1e1e2f, #121218);
+  color: #f0f0f0;
+}
+
+body.dark-mode input {
+  background-color: #2a2a3b;
+  color: #f0f0f0;
+  border-color: #555;
+}
+
+body.dark-mode input:focus {
+  border-color: #9a9aff;
+  box-shadow: 0 0 8px rgba(154, 154, 255, 0.3);
+}
+
+body.dark-mode button {
+  background: linear-gradient(90deg, #6b73ff, #000dff);
+  color: white;
+}
+
+body.dark-mode li {
+  color: #ddd;
+}
+/* Smooth transition for theme */
+body {
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+  background: linear-gradient(135deg, #1e1e2f, #121218);
+  color: #f0f0f0;
+}
+
+/* Input dark style */
+body.dark-mode input {
+  background-color: #2a2a3b;
+  color: #f0f0f0;
+  border-color: #555;
+}
+
+/* Button */
+body.dark-mode button {
+  background: linear-gradient(90deg, #6b73ff, #000dff);
+  color: white;
+}
+
+/* Toggle Switch Styles */
+.theme-toggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: #ddd;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  padding: 0.3rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.theme-toggle.dark {
+  background: #333;
+}
+
+.theme-toggle span {
+  font-size: 1.2rem;
+  margin: 0 0.3rem;
+  transition: transform 0.3s ease;
+}
+
+.theme-toggle .ball {
+  width: 25px;
+  height: 25px;
+  background: white;
+  border-radius: 50%;
+  transition: transform 0.4s ease;
+}
+
+.theme-toggle.dark .ball {
+  transform: translateX(26px);
+}
+.error {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
+.error {
+  color: red;
+  font-size: 0.85rem;
+  margin-top: 4px;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.success {
+  color: green;
+  font-size: 1rem;
+  margin-top: 1rem;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+input[title], button[title] {
+  position: relative;
+}
+
+input[title]:hover::after,
+button[title]:hover::after {
+  content: attr(title);
+  position: absolute;
+  top: -1.8rem;
+  left: 0;
+  background: #333;
+  color: #fff;
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  border-radius: 5px;
+  white-space: nowrap;
+  z-index: 10;
+}
