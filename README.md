@@ -1,6 +1,6 @@
 # 🎓 Student Counseling Web Application
 
-A full-stack web application built using **React**, **Node.js**, **Express**, and **MySQL** for managing student counseling data. The app includes **form submission**, **role-based authentication (student/admin)**, **dark mode UI**, **form validation**, and an **admin dashboard** to view all student records.
+A  web application built using **React**, **Node.js**, **Express**, and **MySQL** for managing student counseling data. The app includes **form submission**, **role-based authentication (student/admin)**, **dark mode UI**, **form validation**, and an **admin dashboard** to view all student records.
 
 ---
 
